@@ -33,8 +33,8 @@ public:
 
     void addEl(Punkt& a);
     void delEl(int n);
-    void sortList();
     void switchEls(int n, int m);
+    void sortList();
 };
 
 

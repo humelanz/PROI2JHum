@@ -7,11 +7,25 @@ List::List()
 
 List List::operator+(const List& l)
 {
+    Punkt *head1=this->beg_;
+    Punkt *head2=l.beg_;
+    Punkt *tmp=head1;
+    while(tmp->next) tmp=tmp->next;
+    tmp->next=head2;
+    while(tmp->next) tmp=tmp->next;
+    List lis;
+    lis.beg_=head1;
+    lis.end_=tmp;
+    lis.len=this->len+l.len;
+    return lis;
 
 }
 List List::operator+=(const List& l)
 {
-
+    this->end_->next=l.beg_;
+    this->end_=l.end_;
+    this->len+=l.len;
+    return *this;
 }
 Punkt* List::operator[](int n)
 {
@@ -45,8 +59,7 @@ void List::delEl(int n)
     Punkt *tmp;
     if(el == this->beg_) {
         tmp = this->beg_;
-        this->beg_ = this->beg_->next;
-        //delete(tmp);
+        this->beg_ = this->beg_->next;      //delete(tmp);?
         this->len--;
         return;
     }
@@ -54,18 +67,23 @@ void List::delEl(int n)
     while(tmp->next != el && tmp->next != NULL) tmp = tmp->next;
 
     if(tmp->next != NULL) {
-        tmp->next = tmp->next->next;
-        //free(el);
-    }
-    else {
-        std::cout<<"Nie znaleziono elementu\n";
+        tmp->next = tmp->next->next;        //free(el);?
     }
     this->len--;
+}
+void List::switchEls(int n, int m)
+{
+    if (n>this->len||m>this->len||n==m) return;
+
+
+
+
 
 }
 void List::sortList()
 {
-}
-void List::switchEls(int n, int m)
-{
+
+
+
+
 }
