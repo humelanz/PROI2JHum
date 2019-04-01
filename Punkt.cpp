@@ -27,6 +27,21 @@ Punkt Punkt::operator-=(const Punkt& a)
     this->z = (this->z - a.z);
     return *this;
 }
+bool Punkt::operator==(const Punkt& a)
+{
+    if(this->x!=a.x) return false;
+    else if(this->y!=a.y) return false;
+    else if(this->z!=a.z) return false;
+    else return true;
+}
+bool Punkt::operator!=(const Punkt& a)
+{
+    if(this->x!=a.x) return true;
+    else if(this->y!=a.y) return true;
+    else if(this->z!=a.z) return true;
+    else return false;
+}
+/*
 bool operator==(const Punkt& a, const Punkt& b)
 {
     if(a.x!=b.x) return false;
@@ -41,6 +56,7 @@ bool operator!=(const Punkt& a, const Punkt& b)
     else if(a.z!=b.z) return true;
     else return false;
 }
+*/
 std::ostream& operator<<(std::ostream& s, const Punkt& a)
 {
    s << "(" << a.x << "," << a.y << "," << a.z << ")";

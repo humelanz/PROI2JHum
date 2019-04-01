@@ -2,11 +2,11 @@
 #define HEADS_H_INCLUDED
 
 #include<iostream>
+#include<math.h>
 
 class Punkt {
-private:
-    double x, y, z;
 public:
+    double x, y, z;
     Punkt(double xx, double yy, double zz);
     Punkt *next;
 
@@ -14,8 +14,8 @@ public:
     Punkt operator+=(const Punkt& a);
     Punkt operator-(const Punkt& a);
     Punkt operator-=(const Punkt& a);
-    friend bool operator==(const Punkt& a, const Punkt& b);
-    friend bool operator!=(const Punkt& a, const Punkt& b);
+    bool operator==(const Punkt& a);
+    bool operator!=(const Punkt& a);
     friend std::ostream& operator<<(std::ostream&, const Punkt& a);
 };
 
@@ -27,14 +27,15 @@ public:
     int len;
 
     List operator+(const List& l);
-    List operator+=(const List& l);
+    void operator+=(const List& l);
     Punkt* operator[](int n);
     friend std::ostream& operator<<(std::ostream&, List& l);
 
-    void addEl(Punkt& a);
+    void addEl(Punkt a);
     void delEl(int n);
-    void switchEls(int n, int m);
+    void changePos(int init, int term);
     void sortList();
+    void delList();
 };
 
 

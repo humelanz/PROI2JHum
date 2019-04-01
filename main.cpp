@@ -4,16 +4,23 @@
 int main()
 {
 
-    Punkt a(1.0,2.0,3.0);
-    Punkt b(0.0,5.0,0.0);
-    Punkt c(-1.0,-2.0,-3.0);
-    Punkt d(0.0,9.0,0.0);
-    Punkt e(6.7,6.7,6.7);
+    Punkt a(1.8,1.2,-1.3);
+    Punkt b(32.0,32.0,32.0);
+    Punkt c(7.0,7.0,7.0);
+    Punkt d(13.0,13.0,13.0);
+    Punkt e(6.0,6.0,6.0);
 
-    b+=d;
-    b-=d;
+    a=a+b-d;
+    c+=e;
 
-    List lista1,lista2;
+    if(c==d) std::cout <<"c=d"<<std::endl;
+    if(c!=d) std::cout <<"c nierowne d"<<std::endl;
+    if(a==d) std::cout <<"a=d"<<std::endl;
+    if(a!=d) std::cout <<"a nierowne d"<<std::endl;
+
+    std::cout <<a<<b<<c<<d<<e<<std::endl;
+
+    List lista1, lista2, lista3;
     lista1.addEl(a);
     lista1.addEl(b);
     lista2.addEl(c);
@@ -23,31 +30,29 @@ int main()
     std::cout << lista1 << std::endl;
     std::cout << lista2 << std::endl;
 
+    lista3=lista2+lista1;
+
+    std::cout << lista1 << std::endl;
+    std::cout << lista2 << std::endl;
+    std::cout << lista3 << std::endl;
 
     lista1+=lista2;
 
-    //std::cout << d << std::endl;
-    //if(b==d) std::cout << "rowne" << std::endl;
-    //else if(b!=d) std::cout << "nierowne" << std::endl;
+    std::cout << lista1 << std::endl;
 
+    lista1.delEl(1);
 
+    lista1.sortList();
 
-    std::cout << *lista1[1] << std::endl;
-    std::cout << *lista1[2] << std::endl;
-    std::cout << *lista1[3] << std::endl;
-    std::cout << *lista1[4] << std::endl;
-    std::cout << *lista1[5] << std::endl;
+    std::cout << lista1 << std::endl;
 
-    std::cout << *lista2[1] << std::endl;
-    std::cout << *lista2[2] << std::endl;
-    std::cout << *lista2[3] << std::endl;
+    lista1.delList();
+    lista2.delList();
+    lista3.delList();
 
-    //lista.delEl(1);
     std::cout << lista1 << std::endl;
     std::cout << lista2 << std::endl;
-    //std::cout << lista12 << std::endl;
-
-
+    std::cout << lista3 << std::endl;
 
     return 0;
 }
